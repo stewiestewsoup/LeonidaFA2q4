@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <h2><i>Multiplication Table</i></h2>
+    <p>Enter two numbers between 2 and 10:</p>
+    <input type="number" id="number1" name="num1" min="2" max="10">
+    by
+    <input type="number" id="number2" name="num2" min="2" max="10">
+    <br/><br/>
+    <button onclick="generateTable()">Generate Table</button><br/>
+    <div id="tableContainer"></div>
+</body>
+<script>
+    function generateTable() {
+        var num1 = parseInt(document.getElementById("number1").value);
+        var num2 = parseInt(document.getElementById("number2").value);
+        
+        if (num1 < 2 || num1 > 10 || num2 < 2 || num2 > 10) {
+            alert("Please enter numbers between 2 and 10.");
+        } else {
+            var tableHTML = "<table border='1' cellspacing='1'>";
+            for (var i = 1; i <= num1; i++) {
+                tableHTML += "<tr>";
+                for (var j = 1; j <= num2; j++) {
+                    tableHTML += "<td>" + (i * j) + "</td>";
+                }
+                tableHTML += "</tr>";
+            }
+            tableHTML += "</table>";
+            document.getElementById("tableContainer").innerHTML = tableHTML;
+        }
+    }
+</script>
+</html>
